@@ -27,14 +27,12 @@ rename_dict = {
     "100+": "Over 100 years old",
 }
 
-
 def OutputDataFrame(df):
     """Outputs the dataframe fully without truncation"""
     with pd.option_context("display.max_rows", None, "display.max_columns", None):
         print(df)
 
-
-def CreateDataFrame(path_to_census=r".\Census"):
+def CreateDataFrame(path_to_census=r"./census"):
     """Creates a dataframe using excel tables for every year of the population, adding year column,
     changing Age Group column to more readable one and combining all tables into one"""
     df_main = pd.DataFrame()
@@ -53,6 +51,6 @@ def CreateDataFrame(path_to_census=r".\Census"):
     df_main = df_main[COLUMN_NAMES]
     return df_main
 
-
 if __name__ == "__main__":
     df = CreateDataFrame()
+    OutputDataFrame(df)
