@@ -47,6 +47,7 @@ def ProcessSlider(years, df, males, females, ax, fig):
     return slider
 
 def animate(df, ax, max_val, year):
+    """Creates the animation frame"""
     ax.clear()
     SetDiagramCharacteristics(ax, max_val)
     filtered = Filter(df, year)
@@ -58,7 +59,7 @@ def animate(df, ax, max_val, year):
     ax.legend([males, females], ["Males", "Females"])
 
 def main():
-    """Main function: Retrieves the dataframe, creates the figure, sets the maximum value for the axis and creates a slider"""
+    """Main function: Retrieves the dataframe, creates the figure, creates the animation and saves it"""
     Save = input("Would you like to save the animation(y/n): ")
     df = merge_data.CreateDataFrame(path_to_census=r"./census")
     years = sorted(df['Year'].unique())

@@ -36,9 +36,7 @@ def CreateDataFrame(path_to_census=r"./census"):
     """Creates a dataframe using excel tables for every year of the population, adding year column,
     changing Age Group column to more readable one and combining all tables into one"""
     df_main = pd.DataFrame()
-    file_paths = [
-        join(path_to_census, f) for f in listdir(path_to_census) if f.endswith(".xlsx")
-    ]
+    file_paths = [join(path_to_census, f) for f in listdir(path_to_census) if f.endswith(".xlsx")]
     all_dfs = []
     for f in file_paths:
         year = "".join(n for n in f if n.isdigit())
